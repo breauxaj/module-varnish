@@ -124,7 +124,7 @@ AOM9490ZqvQKTgieZ5T9es4zw0Y=\n\
       }
 
       yumrepo { 'varnish':
-        baseurl        => "https://repo.varnish-cache.org/redhat/varnish-${varnish_version}/el${::operatingsystemmajrelease}/${::hardwaremodel}",
+        baseurl        => "https://repo.varnish-cache.org/redhat/varnish-${varnish_version}/el6/${::hardwaremodel}",
         failovermethod => 'priority',
         enabled        => '1',
         gpgcheck       => '1',
