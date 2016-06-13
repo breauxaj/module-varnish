@@ -45,6 +45,8 @@ class varnish::params {
 
   case $::operatingsystem {
     'Amazon': {
+      $varnish_version = '4.1'
+
       $varnish_service = [
         'varnish',
         'varnishncsa'
