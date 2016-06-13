@@ -237,8 +237,6 @@ AOM9490ZqvQKTgieZ5T9es4zw0Y=\n\
     'Debian': {
       case $::operatingsystemmajrelease {
         '8': {
-          $varnish_package = 'varnish'
-
           $varnish_service = [
             'varnish',
             'varnishncsa'
