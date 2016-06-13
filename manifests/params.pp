@@ -16,6 +16,11 @@ class varnish::params {
         ensure => present,
         gid    => 241,
       }
+
+      group { 'varnishlog':
+        ensure => present,
+        git    => 242,
+      }
     
       user { 'varnish':
         ensure => present,
@@ -27,7 +32,7 @@ class varnish::params {
 
       user { 'varnishlog':
         ensure => present,
-        gid    => 241,
+        gid    => 242,
         home   => '/var/lib/varnish',
         shell  => '/bin/false',
         uid    => 242,
