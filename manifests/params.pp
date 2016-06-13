@@ -140,8 +140,6 @@ AOM9490ZqvQKTgieZ5T9es4zw0Y=\n\
       case $::operatingsystemmajrelease {
         '6', '7': {
           $varnish_version = '4.1'
-
-          $varnish_package = 'varnish'
     
           $varnish_service = [
             'varnish',
