@@ -19,7 +19,7 @@ class varnish::params {
 
       group { 'varnishlog':
         ensure => present,
-        git    => 242,
+        gid    => 242,
       }
     
       user { 'varnish':
