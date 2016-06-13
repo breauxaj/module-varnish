@@ -229,7 +229,8 @@ AOM9490ZqvQKTgieZ5T9es4zw0Y=\n\
             ]
           }
           default: {
-          fail("The ${module_name} module is not supported on an ${::operatingsystem} ${::operatingsystemmajrelease} distribution.")
+            fail("The ${module_name} module is not supported on an ${::operatingsystem} ${::operatingsystemmajrelease} distribution.")
+          }
         }
       }
     }
