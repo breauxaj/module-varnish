@@ -21,7 +21,7 @@ class varnish::params {
         ensure => present,
         gid    => 241,
         home   => '/var/lib/varnish',
-        shell  => '/sbin/nologin',
+        shell  => '/bin/false',
         uid    => 241,
       }
 
