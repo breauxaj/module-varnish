@@ -133,8 +133,8 @@ AOM9490ZqvQKTgieZ5T9es4zw0Y=\n\
     }
     'CentOS', 'OracleLinux', 'RedHat': {
       case $::operatingsystemmajrelease {
-        '6','7': {
-          $varnish_version = '4.1
+        '6', '7': {
+          $varnish_version = '4.1'
 
           $varnish_package = 'varnish'
     
