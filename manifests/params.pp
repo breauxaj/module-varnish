@@ -228,9 +228,9 @@ AOM9490ZqvQKTgieZ5T9es4zw0Y=\n\
               '/etc/pki/rpm-gpg/RPM-GPG-KEY-VARNISH-SOFTWARE'
             ]
           }
-          default: {
-            fail("The ${module_name} module is not supported on an ${::operatingsystem} ${::operatingsystemmajrelease} distribution.")
-          }
+        }
+        default: {
+          fail("The ${module_name} module is not supported on an ${::operatingsystem} ${::operatingsystemmajrelease} distribution.")
         }
       }
     }
