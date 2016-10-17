@@ -46,7 +46,7 @@ class varnish (
               Group['varnish']
             ]
           }
-          
+
           service { $::varnish::params::varnish_service:
             ensure  => running,
             enable  => true,
@@ -56,7 +56,7 @@ class varnish (
         default: {
           fail("The ${module_name} module is not supported on an ${::operatingsystem} ${::operatingsystemmajrelease} distribution.")
         }
-      } 
+      }
     }
     default: {
       fail("The ${module_name} module is not supported on an ${::osfamily} based system.")

@@ -21,7 +21,7 @@ class varnish::params {
         ensure => present,
         gid    => 242,
       }
-    
+
       user { 'varnish':
         ensure => present,
         gid    => 241,
@@ -142,12 +142,12 @@ AOM9490ZqvQKTgieZ5T9es4zw0Y=\n\
       case $::operatingsystemmajrelease {
         '6', '7': {
           $varnish_version = '4.1'
-    
+
           $varnish_service = [
             'varnish',
             'varnishncsa'
           ]
-    
+
           file { '/etc/pki/rpm-gpg/RPM-GPG-KEY-VARNISH':
             ensure  => present,
             owner   => 'root',
@@ -183,7 +183,7 @@ kveIfO1K2Ay4Ya1ZDwL5ee5L6tsDzg==\n\
 =G792\n\
 -----END PGP PUBLIC KEY BLOCK-----"
           }
-    
+
           file { '/etc/pki/rpm-gpg/RPM-GPG-KEY-VARNISH-SOFTWARE':
             ensure  => present,
             owner   => 'root',
@@ -220,7 +220,7 @@ AOM9490ZqvQKTgieZ5T9es4zw0Y=\n\
 =6AJK\n\
 -----END PGP PUBLIC KEY BLOCK-----"
           }
-    
+
           yumrepo { 'varnish':
             baseurl        => "https://repo.varnish-cache.org/redhat/varnish-${varnish_version}/el${::operatingsystemmajrelease}/${::hardwaremodel}",
             failovermethod => 'priority',
