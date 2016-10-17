@@ -36,7 +36,7 @@ class varnish::params {
         home   => '/var/lib/varnish',
         shell  => '/bin/false',
         uid    => 242,
-      }    
+      }
     }
     default: {
       fail("The ${module_name} module is not supported on an ${::osfamily} based system.")
