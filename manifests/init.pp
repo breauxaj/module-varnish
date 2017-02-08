@@ -1,6 +1,6 @@
 # Class: varnish
 #
-# This class installs Varnish 4
+# This class installs Varnish
 #
 # Parameters:
 #
@@ -8,7 +8,7 @@
 #    Determine which version to install
 #
 # Actions:
-#   - Install Varnish 4
+#   - Install Varnish
 #
 # Sample Usage:
 #
@@ -19,43 +19,16 @@
 class varnish (
   $ensure = $::varnish::params::varnish_package_ensure
 ) inherits ::varnish::params {
-  case $::operatingsystem {
-    'Amazon', 'CentOS', 'OracleLinux', 'RedHat': {
+  case $::osfamily {
+    'RedHat', 'Debian': {
       package { $::varnish::params::varnish_package:
         ensure  => $ensure,
-        require => [
-          Yumrepo['varnish'],
-          User['varnish'],
-          Group['varnish']
-        ]
       }
 
       service { $::varnish::params::varnish_service:
         ensure  => running,
         enable  => true,
         require => Package[$::varnish::params::varnish_package]
-      }
-    }
-    'Debian': {
-      case $::operatingsystemmajrelease {
-        '8': {
-          package { $::varnish::params::varnish_package:
-            ensure  => $ensure,
-            require => [
-              User['varnish'],
-              Group['varnish']
-            ]
-          }
-
-          service { $::varnish::params::varnish_service:
-            ensure  => running,
-            enable  => true,
-            require => Package[$::varnish::params::varnish_package]
-          }
-        }
-        default: {
-          fail("The ${module_name} module is not supported on an ${::operatingsystem} ${::operatingsystemmajrelease} distribution.")
-        }
       }
     }
     default: {
