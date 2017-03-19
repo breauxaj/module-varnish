@@ -10,9 +10,9 @@ class varnish::params {
 
   case $::osfamily {
     'RedHat', 'Debian': {
-      $varnish_package = 'varnish'
+      $varnish_package  = 'varnish'
 
-      $varnish_service = [
+      $varnish_services = [
         'varnish',
         'varnishncsa'
       ]
