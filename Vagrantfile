@@ -16,4 +16,15 @@ Vagrant.configure("2") do |config|
     end
   end
 
+  config.vm.define "debian" do |debian|
+    centos.vm.box     = 'breauxaj/debian8'
+    centos.vm.box_url = "http://vagrant.breaux.io/debian8.json"
+
+    centos.vm.provision :puppet do |puppet|
+      puppet.manifests_path = "tests"
+      puppet.manifest_file  = "vagrant.pp"
+      puppet.options        = ["--modulepath", "/home/vagrant"]
+    end
+  end
+
 end
