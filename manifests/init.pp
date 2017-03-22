@@ -30,6 +30,20 @@ class varnish (
         enable  => true,
         require => Package[$::varnish::params::varnish_package]
       }
+
+      service { $::varnish::params::varnishlog_service:
+        ensure    => running,
+        enable    => true,
+        require   => Package[$::varnish::params::varnish_package],
+        subscribe => Service[$::varnish::params::varnish_service]
+      }
+
+      service { $::varnish::params::varnishncsa_service:
+        ensure    => running,
+        enable    => true,
+        require   => Package[$::varnish::params::varnish_package],
+        subscribe => Service[$::varnish::params::varnish_service]
+      }
     }
     default: {
       fail("The ${module_name} module is not supported on an ${::osfamily} based system.")
