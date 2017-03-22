@@ -25,7 +25,7 @@ class varnish (
         ensure  => $ensure,
       }
 
-      service { $::varnish::params::varnish_services:
+      service { $::varnish::params::varnish_service:
         ensure  => running,
         enable  => true,
         require => Package[$::varnish::params::varnish_package]

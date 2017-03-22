@@ -10,12 +10,8 @@ class varnish::params {
 
   case $::osfamily {
     'RedHat', 'Debian': {
-      $varnish_package  = 'varnish'
-
-      $varnish_services = [
-        'varnish',
-        'varnishncsa'
-      ]
+      $varnish_package = 'varnish'
+      $varnish_service = 'varnish'
     }
     default: {
       fail("The ${module_name} module is not supported on an ${::osfamily} based system.")
